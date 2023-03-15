@@ -1,14 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-class ColorDesignSystem {
+class ColorData {
+  final Color premier;
   final LinearGradient appBarLinerGradient;
   final Color secondary;
   final Color background;
   final Color grayBackground;
   final Color selectedNavBarColor;
   final Color unSelectedNavBarColor;
-  const ColorDesignSystem._({
+  const ColorData._({
+    required this.premier,
     required this.appBarLinerGradient,
     required this.secondary,
     required this.background,
@@ -17,7 +19,8 @@ class ColorDesignSystem {
     required this.unSelectedNavBarColor,
   });
 
-  factory ColorDesignSystem.light() => ColorDesignSystem._(
+  factory ColorData.light() => ColorData._(
+      premier: Colors.green,
       appBarLinerGradient: const LinearGradient(
         colors: [
           Color.fromARGB(255, 29, 201, 192),
