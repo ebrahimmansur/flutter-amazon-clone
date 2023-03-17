@@ -1,8 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'dart:math';
-
 import 'package:amazon_clone_app/src/common/design.system/theme.data.dart';
+import 'theme.preference.broker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,24 +9,21 @@ class DesignSystemCubit extends Cubit<DesignSystemCubitState> {
   DesignSystemCubit() : super(DesignSystemCubitState.light());
 
   Future<void> switchToLight() async {
-    //TODO: add the proces of stroing users preference.
+    await ThemePreferencesBroker.saveAsLightTheme();
     if (!isClosed) {
       emit(DesignSystemCubitState.light());
     }
   }
 
   Future<void> switchToDark() async {
-    //TODO: add the proces of stroing users preference.
+    await ThemePreferencesBroker.saveAsDarkTheme();
     if (!isClosed) {
       emit(DesignSystemCubitState.dark());
     }
   }
 
   Future<void> loadTheme() async {
-    //TODO: add the proces of retriving user prefernce.
-    await Future.delayed(const Duration(milliseconds: 300));
-
-    final isDark = Random().nextBool();
+    final isDark = await ThemePreferencesBroker.loadTheme;
 
     if (!isClosed) {
       emit(isDark
