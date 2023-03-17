@@ -41,10 +41,12 @@ class DesignSystemCubitState {
   final DesignThemesData data;
   final ThemeData? light;
   final ThemeData? dark;
+  final ThemeMode? themeMode;
   const DesignSystemCubitState._({
     required this.data,
     this.light,
     this.dark,
+    this.themeMode,
   });
 
   factory DesignSystemCubitState.light() {
@@ -54,10 +56,16 @@ class DesignSystemCubitState {
         primary: lightData.colorsSystem.premier,
         secondary: lightData.colorsSystem.secondary,
       ),
+      appBarTheme: const AppBarTheme().copyWith(
+          elevation: 0,
+          iconTheme: const IconThemeData(
+            color: Colors.black87,
+          )),
     );
     return DesignSystemCubitState._(
       data: lightData,
       light: lightTheme,
+      themeMode: ThemeMode.light,
     );
   }
 
@@ -68,10 +76,16 @@ class DesignSystemCubitState {
         secondary: darkData.colorsSystem.secondary,
         primary: darkData.colorsSystem.premier,
       ),
+      appBarTheme: const AppBarTheme().copyWith(
+          elevation: 0,
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+          )),
     );
     return DesignSystemCubitState._(
       data: darkData,
       dark: darkTheme,
+      themeMode: ThemeMode.dark,
     );
   }
 }
