@@ -33,4 +33,19 @@ class ColorData {
       grayBackground: const Color(0xffebecee),
       selectedNavBarColor: Colors.cyan[800]!,
       unSelectedNavBarColor: Colors.black87);
+
+  factory ColorData.dark() => ColorData._(
+      premier: Colors.pink,
+      appBarLinerGradient: const LinearGradient(
+        colors: [
+          Color.fromARGB(255, 29, 201, 192),
+          Color.fromARGB(255, 125, 221, 216),
+        ],
+        stops: [0.5, 1.0],
+      ),
+      secondary: const Color.fromRGBO(255, 153, 0, 1),
+      background: Colors.white,
+      grayBackground: const Color(0xffebecee),
+      selectedNavBarColor: Colors.cyan[800]!,
+      unSelectedNavBarColor: Colors.black87);
 }
